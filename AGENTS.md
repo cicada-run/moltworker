@@ -10,7 +10,7 @@ This is a Cloudflare Worker that runs [OpenClaw](https://github.com/cicada-run/o
 - API endpoints at `/api/*` for device pairing
 - Debug endpoints at `/debug/*` for troubleshooting
 
-**Note:** The CLI tool is still named `clawdbot` (upstream hasn't renamed yet), so CLI commands and internal config paths still use that name.
+**Note:** The CLI tool is named `openclaw`, so CLI commands and internal config paths use that name.
 
 ## Project Structure
 
@@ -50,7 +50,7 @@ src/
 ### CLI Commands
 
 When calling the openclaw CLI from the worker, always include `--url ws://localhost:18789`.
-Note: The CLI is still named `clawdbot` until upstream renames it (or `openclaw` if aliased):
+Note: The CLI is named `openclaw`:
 ```typescript
 sandbox.startProcess('openclaw devices list --json --url ws://localhost:18789')
 ```
@@ -123,7 +123,7 @@ Browser
 ┌─────────────────────────────────────┐
 │     Cloudflare Sandbox Container    │
 │  ┌───────────────────────────────┐  │
-│  │     Moltbot Gateway           │  │
+│  │     OpenClaw Gateway          │  │
 │  │  - Control UI on port 18789   │  │
 │  │  - WebSocket RPC protocol     │  │
 │  │  - Agent runtime              │  │

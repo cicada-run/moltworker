@@ -93,7 +93,7 @@ debug.get('/processes', async (c) => {
   }
 });
 
-// GET /debug/gateway-api - Probe the moltbot gateway HTTP API
+// GET /debug/gateway-api - Probe the OpenClaw gateway HTTP API
 debug.get('/gateway-api', async (c) => {
   const sandbox = c.get('sandbox');
   const path = c.req.query('path') || '/';

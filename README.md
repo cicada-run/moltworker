@@ -1,6 +1,6 @@
 # OpenClaw on Cloudflare Workers
 
-Run [OpenClaw](https://github.com/cicada-run/openclaw) (formerly Moltbot, formerly Clawdbot) personal AI assistant in a [Cloudflare Sandbox](https://developers.cloudflare.com/sandbox/).
+Run [OpenClaw](https://github.com/cicada-run/openclaw) personal AI assistant in a [Cloudflare Sandbox](https://developers.cloudflare.com/sandbox/).
 
 ![openclaw-sandbox architecture](./assets/logo.png)
 
@@ -21,7 +21,7 @@ The following Cloudflare features used by this project have free tiers:
 
 ## What is OpenClaw?
 
-[OpenClaw](https://github.com/openclaw/openclaw) (formerly Moltbot, formerly Clawdbot) is a personal AI assistant with a gateway architecture that connects to multiple chat platforms. Key features:
+[OpenClaw](https://github.com/openclaw/openclaw) is a personal AI assistant with a gateway architecture that connects to multiple chat platforms. Key features:
 
 - **Control UI** - Web-based chat interface at the gateway
 - **Multi-channel support** - Telegram, Discord, Slack
@@ -124,7 +124,7 @@ If you prefer more control, you can manually create an Access application:
 1. Go to [Cloudflare Zero Trust Dashboard](https://one.dash.cloudflare.com/)
 2. Navigate to **Access** > **Applications**
 3. Create a new **Self-hosted** application
-4. Set the application domain to your Worker URL (e.g., `moltbot-sandbox.your-subdomain.workers.dev`)
+4. Set the application domain to your Worker URL (e.g., `openclaw-sandbox.your-subdomain.workers.dev`)
 5. Add paths to protect: `/_admin/*`, `/api/*`, `/debug/*`
 6. Configure your desired identity providers (e.g., email OTP, Google, GitHub)
 7. Copy the **Application Audience (AUD)** tag and set the secrets as shown above
@@ -166,7 +166,7 @@ For local development only, set `DEV_MODE=true` in `.dev.vars` to skip Cloudflar
 
 ## Persistent Storage (R2)
 
-By default, moltbot data (configs, paired devices, conversation history) is lost when the container restarts. To enable persistent storage across sessions, configure R2:
+By default, OpenClaw data (configs, paired devices, conversation history) is lost when the container restarts. To enable persistent storage across sessions, configure R2:
 
 ### 1. Create R2 API Token
 
