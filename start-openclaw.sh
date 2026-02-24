@@ -89,6 +89,19 @@ elif [ -f "$BACKUP_DIR/openclaw.json" ]; then
     fi
 elif [ -d "$BACKUP_DIR" ]; then
     echo "R2 mounted at $BACKUP_DIR but no backup data found yet"
+    # Migration step: Check if old clawdbot.json exists in legacy locations
+    if [ -f "/data/clawdbot/clawdbot.json" ]; then
+        echo "Found legacy clawdbot.json at /data/clawdbot/, migrating to openclaw.json..."
+        mkdir -p "$CONFIG_DIR"
+        cp -a "/data/clawdbot/." "$CONFIG_DIR/"
+        mv "$CONFIG_DIR/clawdbot.json" "$CONFIG_FILE"
+        echo "Successfully migrated legacy configuration"
+    elif [ -f "/data/clawdbot.json" ]; then
+        echo "Found legacy clawdbot.json at /data/, migrating to openclaw.json..."
+        mkdir -p "$CONFIG_DIR"
+        cp "/data/clawdbot.json" "$CONFIG_FILE"
+        echo "Successfully migrated legacy configuration"
+    fi
 else
     echo "R2 not mounted, starting fresh"
 fi
